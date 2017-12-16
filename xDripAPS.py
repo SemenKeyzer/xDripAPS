@@ -132,6 +132,8 @@ class Entries(Resource):
         # Get column values (json_data will contain exactly one record if data source is xDrip
         # but could contain more than one record if data source is xDripG5 for iOS)
         for entry in json_data:
+            if entry['type'] != 'sgv':
+                continue
             device          = entry['device']
             date            = entry['date']
             dateString      = entry['dateString']
